@@ -14,7 +14,7 @@
 #index .side-bar .header .close
 { width: 14.3875rem; flex-shrink: 0; border-radius: 40px; border: 0px; background: #F27521; color: #FFF; font-size: 3rem; }
 
-#index .header .header-logo { width: 14rem; height: 100%; background-color: #F27521; }
+#index .header .header-logo { width: 14rem; height: 100%; background-color: #f27521; }
 
 /* 메인 버튼 감싸는 wrapper, 버튼 정렬 위헤서 flex(사실상 의미 없음 자식이 ul이라), wrap */
 /* 좌우 padding 18px 유지 */
@@ -40,12 +40,15 @@
 /* 사이드바 미완성 */
 /* 사이드바 애니메이션 js */
 #index .side-bar { position: fixed; top: 0px; background-color: antiquewhite; width: 0px; height: 100vh; display: none;}
+
+/* 애니메이션 클래스 */
 #index .fadeIn{display: block !important; animation: fadeIn 0.3s forwards !important;}
 #index .fadeOut{animation: fadeOut 0.3s forwards !important;}
 
 /* 사이드바 항목 */
-#index .side-bar ul { height: calc(100% - 20rem);}
-#index .side-bar ul li { display: flex; justify-content: center; align-items: center; text-align: center; padding: 3.5rem 0; cursor: pointer; border-bottom: 1px solid #000;}
+/* #index .side-bar ul { height: calc(100% - 20rem);} */
+#index .side-bar ul li { display: flex; justify-content: center; align-items: center; text-align: center; padding: 3.5rem 0; cursor: pointer; border-bottom: 1px solid #f27521; border-right: 1px solid #f27521; z-index: 100;}
+
 #index .side-bar ul p { font-size: 2.4rem; }
 
 /* 사이드바 애니메이션 */
