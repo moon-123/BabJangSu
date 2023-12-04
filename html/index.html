@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>main</title>
+        <!-- css -->
+        <link rel="stylesheet" href="../css/main.css">
+
+        <!-- js -->
+        <script defer src="../include/include.js"></script>
+        <script defer src="../js/index.js"></script>
+    </head>
+
+    <!--   index.html -> id=index
+            css #index로 시작
+            meal.html -> id=meal 
+            css #meal로 시작
+
+            형식 지켜주세요 -->
+
+    <body id="index">
+        <div class="wrap">
+
+            <!-- included header -->
+            <header data-include-file="../include/header.html" class="header-wrap includeJs"></header>
+
+            <!--메인 페이지 메뉴-->
+            <main class="main">
+                <ul class="main-wrap1">
+                    <li>
+                        <a href="./cal.html" class="main-btn">
+                            <div class="main-text">오늘의<br>식단</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./recipe.html" class="main-btn">
+                            <div class="main-text">요리책</div>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="main-wrap2">
+                    <li>
+                        <a href="./ingredients.html" class="main-btn">
+                            <div class="main-text">식재료</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./myinformation.html" class="main-btn">
+                            <div class="main-text">내 건강<br>등록/보기</div>
+                        </a>
+                    </li>
+                </ul>
+            </main>
+
+            <!-- included footer  -->
+            <header data-include-file="../include/footer.html" class="footer-wrap includeJs"></header>
+
+            <!-- included sidebar -->
+            <header data-include-file="../include/sidebar.html" class="footer-wrap includeJs"></header>
+        </div>
+    </body>
+</html>
