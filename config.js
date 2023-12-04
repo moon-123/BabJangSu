@@ -29,5 +29,10 @@ export const config = {
         // user: required('DB_USER'),
         // database: required('DB_DATABASE')
         // password: required('')
+    },
+    message: {
+        apiKey: required('APIKEY'),
+        apiSecret: required('APISECRET'),
+        senderNumber: required('SENDER_NUMBER')
     }
 }
