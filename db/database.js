@@ -1,5 +1,6 @@
 import MongoDb from 'mongodb';
 import { config } from '../config.js';
+import mongoose from 'mongoose';
 
 let db;
 export async function connectDB(databaseName) {

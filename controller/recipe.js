@@ -1,6 +1,5 @@
 // 민주
 import * as RecipeRepository from '../data/recipe.js'
-import { getSocketIO } from '../connection/socket.js';
 
 // 밥, 국, 반찬, 기타로 나누는 함수
 export async function getByType(req,res){

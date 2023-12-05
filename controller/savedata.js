@@ -1,5 +1,4 @@
 import * as RecipeRepository from '../data/savedata.js'
-import { getSocketIO } from '../connection/socket.js';
 
 // fetch하는 함수
 // 로그인한 사람의 저장된 데이터 중 대분류별로 분류하여 가져오는 함수
