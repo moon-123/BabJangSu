@@ -1,4 +1,5 @@
 import express from "express";
+import * as saveController from '../controller/savedata.js';
 import * as recipeController from '../controller/recipe.js';
 import { body } from 'express-validator';
 import { validate } from '../middleware/validator.js'
@@ -13,14 +14,18 @@ const router = express.Router();
 // recipe/:id?type=etc
 // recipe/:id?type=my
 
-router.get('/:id', isAuth, recipeController.getByType);
+// recipe-all 컬렉션(모든 레시피 데이터)에서 국 or 반찬 or 기타 or 밥만 걸러서 fetch하는 함수
+router.get('/:id', recipeController.getByType);
+// 요리 이름의 정보만 fetch하는 함수
+router.get('/detail/:id', recipeController.getRecipe);
+
+// 내 정보 (내 레시피) 정보 뽑아오기
+router.get('/my/category/',isAuth, saveController.getByType); 
+router.get('/my/detail/',isAuth, saveController.getRecipe);   
 
 
-router.post('/createSugar/:id', isAuth, recipeController.createSugar);
-router.post('/createBlood/:id', isAuth, recipeController.createBlood);
-router.post('/createWeight/:id', isAuth, recipeController.createWeight);
-
+router.post('/saveData',isAuth,saveController.saveData);
+router.delete('/deleteData/',isAuth,saveController.deleteData);
 
 
 export default router;
- 

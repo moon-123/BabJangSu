@@ -1,29 +1,41 @@
-import * as mealRepository from '../data/meal.js';
+// 민주
+import * as RecipeRepository from '../data/recipe.js'
+import { getSocketIO } from '../connection/socket.js';
 
-// Fetch OpenAPI -> 식단 계산 후 res json, 레시피 하나 res json, 
-// data/meal.js 에서 fetch
-
-
-// rice, soup, side, etc, my
-export async function getByType(req, res){
-// req.query.type 등등 필요하면 추가
-
-
+// 밥, 국, 반찬, 기타로 나누는 함수
+export async function getByType(req,res){
+    try {
+        // 파람에 국, 밥, 반찬, 기타가 있다
+        const categoryId = req.params.id;
+        // console.log(categoryId);
+        const filteredData = await filterDataByCategory(categoryId);
+        res.status(200).json(filteredData);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: '1.Internal Server Error' });
+    }
 }
 
-export async function search(req, res){
-    
+// 레시피 이름만 받아오는 함수
+export async function getRecipe(req, res) {
+    try {
+        const ingredientID = req.params.id;
+        console.log(ingredientID);
+        // 일단 모든 레시피 정보를 받아온다
+        const data = await RecipeRepository.getAll();
+        // 이후 레시피 하나만 뽑아 정보를 받아온다
+        const oneEffect = data.filter((item) => item.RCP_NM.trim() == ingredientID);
+        // console.log(oneEffect);
+        // json으로 표출
+        res.status(200).json(oneEffect);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: '2.Internal Server Error' });
+    }
 }
 
-export async function save(req, res){
-
+// 데이터베이스의 모든 데이터를 받아와서 대분류별로 분류하는 함수
+export async function filterDataByCategory(categoryId) {
+    const data = await RecipeRepository.getAll();
+    return data.filter(item => item.RCP_PAT2 === categoryId);
 }
-
-export async function remove(req, res){
-
-}
-
-
-
-// Slack에 req, res 객체 참고 링크와 에러코드 참고 링크 있음
-// 수정 최소화하게 에러 status 부분 신경써서 작성해주세요.

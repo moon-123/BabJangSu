@@ -12,7 +12,7 @@ import authRouter from './router/auth.js';
 // import dotenv from 'dotenv';
 
 // db
-import { connectDB } from './db/database.js';
+import { connectDB,connectsaveDB, connectrecipeDB } from './db/database.js';
 
 
 const app = express();
@@ -39,3 +39,13 @@ connectDB().then(() => {
     app.listen(config.host.port);    // config.[].[] 로 config에 정의한 값에 접근할 수 있음.
 
 }).catch(console.error)
+
+
+
+
+// Promise.all([connectsaveDB(),connectrecipeDB(),connectDB()])
+//     .then(() => {
+//         const server = app.listen(config.host.port);
+//         console.log("Server started successfully");
+//     })
+//     .catch(console.error);
