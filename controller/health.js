@@ -1,7 +1,3 @@
-import * as healthRepository from '../data/tweet.js';
-import { getSocketIO } from '../connection/socket.js';
-
-
 // 건강정보 보기 혈
 export async function getAll(req, res){
 
