@@ -1,5 +1,6 @@
 import express from "express";
 import * as ingredientController from '../controller/ingredient.js';
+
 import { body } from 'express-validator';
 import { validate } from '../middleware/validator.js'
 import { isAuth } from "../middleware/auth.js";
